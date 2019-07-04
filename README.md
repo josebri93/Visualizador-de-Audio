@@ -1,6 +1,7 @@
 # Visualizador-de-Audio
 
 Adaptado del sketch "Visualizador Referencia"
+
 Mi sketch intenta tomar como input el sonido que vaya entrando al microfono y hace que mueva el eje X hacia la derecha hasta que llegue al extremo y regresa al inicio del eje mientras que el eje Y desciende cada vez más.
 
     import ddf.minim.*;
