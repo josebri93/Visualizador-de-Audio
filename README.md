@@ -1,5 +1,7 @@
 # Visualizador-de-Audio
 
+Este ejemplo como como input un archivo de sonido y ejecuta tal cual como el "Ejemplo de referencia" adjuntado.
+
     import ddf.minim.*;
 
     Minim minim;
