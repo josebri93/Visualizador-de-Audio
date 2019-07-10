@@ -6,7 +6,7 @@
     int spacing = 16;
     int Xspeed=1;
     int border = spacing*6;
-    int amplification = 20;
+    int amplification = 80;
     int y = spacing;
     float ySteps=50;
       float movX;
@@ -28,10 +28,10 @@
       //float frequency = in.mix.get(x)*spacing*amplification;
 
 
-      float freqMix = in.mix.get(int(x));
+      float freqMix = in.left.get(int(x));
       float freqLeft = in.left.get(int(x));
-      float freqRight = in.right.get(int(x));
-      float amplitude = in.mix.level();
+      float freqRight = in.left.get(int(x));
+      float amplitude = in.left.level();
       float size = freqMix*spacing*amplification;
 
       float red = map(freqLeft, -1, 1, 0, 200);
@@ -41,6 +41,8 @@
 
       //noStroke();
 
+      pushMatrix();
+      translate(50,50);
       stroke(0,opacity);
       fill(red, green, blue, opacity);
       ellipse(movX, ySteps, size, size);
@@ -60,14 +62,14 @@
       if (size > 1) {
         movX= movX + Xspeed; //iniciador de movimiento
       }
-        if (movX > width) {
+        if (movX > 700) {
           movX=0;
           ySteps = ySteps + 30;
         }
 
       pushMatrix();
       translate(movX, ySteps);
-      int circleResolution = (int)map(amplitude, 0, 1, 3, 8);
+      int circleResolution = (int)map(amplitude, 0, 1, 3, 12);
       float radius = size/2;
       float angle = TWO_PI/ circleResolution;
       beginShape();
@@ -77,5 +79,7 @@
         vertex(xShape, yShape);
       }
        endShape();
+       popMatrix();
+
        popMatrix();
     }
