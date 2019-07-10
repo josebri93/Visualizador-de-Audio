@@ -6,7 +6,7 @@
     int spacing = 16;
     int Xspeed=1;
     int border = spacing*6;
-    int amplification = 80;
+    int amplification = 100;
     int y = spacing;
     float ySteps=50;
       float movX;
@@ -32,10 +32,10 @@
       float freqLeft = in.left.get(int(x));
       float freqRight = in.left.get(int(x));
       float amplitude = in.left.level();
-      float size = freqMix*spacing*amplification;
+      float size = freqMix*spacing*amplification; //amplitud total
 
       float red = map(freqLeft, -1, 1, 0, 200);
-      float green = map(freqRight, -1, 1, 0, 200);
+      float green = map(size, 3, 15, 51, 150);
       float blue = map(freqMix, -1, 2, 0, 55);
       float opacity = map(amplitude, 0, 0.4, 20, 100);
 
